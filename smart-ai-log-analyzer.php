@@ -56,10 +56,10 @@ function ala_settings_page() {
 
 function ala_run_analysis() {
     $api_key = get_option('ala_gemini_api_key');
-    if (!$api_key) return "કૃપા કરીને પહેલા API Key સેવ કરો.";
+    if (!$api_key) return "Please save the API Key first.";
 
     $log_path = WP_CONTENT_DIR . '/debug.log';
-    if (!file_exists($log_path)) return "debug.log ફાઈલ મળી નથી. wp-config.php માં WP_DEBUG_LOG ચાલુ કરો.";
+    if (!file_exists($log_path)) return "The debug.log file was not found. Enable WP_DEBUG_LOG in wp-config.php.";
 
   
     $log_content = shell_exec("tail -n 10 " . escapeshellarg($log_path));
